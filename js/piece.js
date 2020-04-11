@@ -202,8 +202,8 @@ function roundedRectangle(x, y, w, h, value, size, id) {
     context.font = textSize + 'px Arial';
     context.fillText(value, textX, textY);
 
-    context.fillStyle = textStyle;
-    context.font = textSize / 4 + 'px Arial';
-    context.fillText(id, textX, textY + 20);
+    // context.fillStyle = textStyle;
+    // context.font = textSize / 4 + 'px Arial';
+    // context.fillText(id, textX, textY + 20);
 
 }

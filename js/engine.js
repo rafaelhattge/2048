@@ -2,7 +2,7 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 canvas.width = document.getElementById("canvas-container").offsetWidth;
 canvas.height = canvas.width;
-const SIZE = 2;
+const SIZE = 4;
 const TIMEOUT_SPEED = 150;
 var board = new Board(canvas, SIZE);
 var tiles = board.tiles;
@@ -204,7 +204,6 @@ function slide(row, mergedRow, direction) {
     return row;
 }
 
-//HELPER FUNCTIONS
 function sort(row) {
     nulls = row.filter(function (value) {
         return value === null;
@@ -214,43 +213,3 @@ function sort(row) {
     });
     return nulls.concat(pieces);
 }
-
-// LISTENERS
-newGameButton.addEventListener("click", function () {
-    gameStart();
-});
-
-window.addEventListener("keydown", function (event) {
-    gameOver = gameIsOver();
-    if (gameOver) {
-        fadeCanvas();
-    } else {
-        switch (event.key) {
-            case "ArrowRight":
-                move("right");
-                break;
-            case "ArrowLeft":
-                move("left");
-                break;
-            case "ArrowUp":
-                move("up");
-                break;
-            case "ArrowDown":
-                move("down");
-                break;
-        }
-        setTimeout(function () {
-            for (var i = 0; i < SIZE; i++) {
-                for (var j = 0; j < SIZE; j++) {
-                    mergedTiles[i][j] = null;
-                }
-            }
-        }, TIMEOUT_SPEED / 4);
-        if (moved) {
-            setTimeout(function () {
-                addRandomPiece(board, 1)
-                moved = false;
-            }, TIMEOUT_SPEED);
-        }
-    }
-});

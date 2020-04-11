@@ -108,6 +108,6 @@ function drawBoard() {
         context.lineTo(board.width, i);
     }
     context.strokeStyle = "#bbada0";
-    context.lineWidth = board.width / 40;
+    context.lineWidth = board.width / 30;
     context.stroke();
 }
