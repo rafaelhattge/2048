@@ -20,6 +20,7 @@ gestureZone.addEventListener('touchend', function (event) {
 }, false);
 
 function handleGesture(e) {
+    e.preventDefault;
     var x = touchendX - touchstartX;
     var y = touchendY - touchstartY;
     var xy = Math.abs(x / y);

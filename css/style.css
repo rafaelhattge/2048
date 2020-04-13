@@ -19,7 +19,7 @@ body {
   background: #faf8ef;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 
 }
 
@@ -28,13 +28,13 @@ h1 {
 }
 
 #title-container {
-    width: 90%;
+    width: 80%;
     max-width: 500px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     /* overflow: hidden; */
-    margin: 0 auto;
+    margin: 2vh auto 2vh auto;
 }
 
 #score-container {
@@ -60,7 +60,7 @@ h1 {
 }
 
 #canvas-container {
-  width: 80%;
+  width: 75%;
   max-width: 500px;
   display: flex;
   align-items: center;
@@ -69,7 +69,7 @@ h1 {
   border: 1vw solid #bbada0;
   background-color: #bbada0;
   /* overflow: hidden; */
-  margin: 0 auto;
+  margin: 0 auto 2vh auto;
   position: relative;
 }
 
@@ -78,7 +78,7 @@ h1 {
   position: absolute;
   z-index: 50;
   left: 50%;
-  top: 50%;
+  top: 30%;
   transform: translate(-50%, -50%);
   display: table;
   text-align: center;
