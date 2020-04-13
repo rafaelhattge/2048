@@ -31,7 +31,7 @@ h1 {
 }
 
 #title-container {
-    width: 80%;
+    width: 85%;
     max-width: 500px;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@ h1 {
 }
 
 #canvas-container {
-  width: 75%;
+  width: 85%;
   max-width: 500px;
   display: flex;
   align-items: center;
