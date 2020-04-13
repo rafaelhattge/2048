@@ -4,6 +4,7 @@ var touchstartX = 0;
 var touchstartY = 0;
 var touchendX = 0;
 var touchendY = 0;
+var canMove = true;
 
 const limit = Math.tan(45 * 1.5 / 180 * Math.PI);
 const gestureZone = document.getElementById('canvas-container');
@@ -19,6 +20,13 @@ gestureZone.addEventListener('touchend', function (event) {
     handleGesture(event);
 }, false);
 
+var resetMovement = function () {
+    canMove = false;
+    setTimeout(function () {
+        canMove = true;
+    }, 150);
+}
+
 function handleGesture(e) {
     e.preventDefault;
     var x = touchendX - touchstartX;
@@ -31,16 +39,28 @@ function handleGesture(e) {
     } else if (Math.abs(x) > treshold || Math.abs(y) > treshold) {
         if (yx <= limit) {
             if (x < 0) {
-                move("left");
+                if (canMove) {
+                    move("left");
+                    resetMovement();
+                }
             } else {
-                move("right");
+                if (canMove) {
+                    move("right");
+                    resetMovement();
+                }
             }
         }
         if (xy <= limit) {
             if (y < 0) {
-                move("up");
+                if (canMove) {
+                    move("up");
+                    resetMovement();
+                }
             } else {
-                move("down");
+                if (canMove) {
+                    move("down");
+                    resetMovement();
+                }
             }
         }
     }
@@ -71,16 +91,28 @@ window.addEventListener("keydown", function (event) {
     } else {
         switch (event.key) {
             case "ArrowRight":
-                move("right");
+                if (canMove) {
+                    move("right");
+                    resetMovement();
+                }
                 break;
             case "ArrowLeft":
-                move("left");
+                if (canMove) {
+                    move("left");
+                    resetMovement();
+                }
                 break;
             case "ArrowUp":
-                move("up");
+                if (canMove) {
+                    move("up");
+                    resetMovement();
+                }
                 break;
             case "ArrowDown":
-                move("down");
+                if (canMove) {
+                    move("down");
+                    resetMovement();
+                }
                 break;
         }
         setTimeout(function () {
