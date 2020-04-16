@@ -20,29 +20,6 @@ function Piece(value, board, x, y, id) {
 }
 
 Piece.prototype.update = function () {
-    //Scale piece when multiplied
-    if (this.multiply) {
-        this.value *= 2;
-        this.grow = true;
-        
-    }
-    if (this.grow && this.size < this.board.width / this.board.size * 1.1) {
-        this.size += board.size;
-    } else {
-        this.grow = false;
-    }
-    if (this.size >= this.board.width / board.size && this.grow == false) {
-        this.size -= board.size;
-    } else {
-        this.multiply = false;
-    }
-
-    //Scale piece on creation
-    if (this.size < board.width / board.size) {
-        this.size += (board.width / board.size - this.size) / 5;
-        this.render(context);
-    }
-
     //Update piece position
     if (this.y < this.nextY) {
         this.y += Math.ceil((this.nextY - this.y) / 3);
@@ -65,6 +42,32 @@ Piece.prototype.update = function () {
         if (this.x < this.nextX) {
             this.x = this.nextX;
         }
+    }
+
+    //Scale piece when multiplied
+    if (this.multiply) {
+        this.value *= 2;
+        this.grow = true;
+    }
+    if (this.grow && this.size < this.board.width / this.board.size * 1.1) {
+        this.size += board.size;
+        this.x -= board.size;
+        this.y -= board.size;
+    } else {
+        this.grow = false;
+    }
+    if (this.size >= this.board.width / board.size && this.grow == false) {
+        this.size -= board.size;
+        // this.x += board.size;
+        // this.y += board.size;
+    } else {
+        this.multiply = false;
+    }
+
+    //Scale piece on creation
+    if (this.size < board.width / board.size) {
+        this.size += (board.width / board.size - this.size) / 5;
+        // this.render(context);
     }
 }
 

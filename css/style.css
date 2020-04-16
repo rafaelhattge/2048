@@ -50,6 +50,7 @@ h1 {
   align-items: center;
   justify-content: center;
   user-select: none;
+  padding: 4px;
 }
 
 #score-container h2 {
@@ -107,6 +108,7 @@ h1 {
     color: #FFF;
     font-size: 1.2em;
     font-weight: bold;
+    padding: 4px;
 }
 
 #new-game-button {

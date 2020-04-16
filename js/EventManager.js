@@ -20,7 +20,7 @@ gestureZone.addEventListener('touchend', function (event) {
     handleGesture(event);
 }, false);
 
-var resetMovement = function () {
+function resetMovement() {
     canMove = false;
     setTimeout(function () {
         canMove = true;
